@@ -1,6 +1,7 @@
 import { Header, Username, BackArrow } from "./styles";
 
 import backArrow from "../../assets/back-arrow-bees.svg";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   name: string;
@@ -9,9 +10,11 @@ interface HeaderProps {
 export const HeaderComponent = ({ name }: HeaderProps) => {
   return (
     <Header>
-      <BackArrow>
-        <img src={backArrow} /> Go back
-      </BackArrow>
+      <Link to="/">
+        <BackArrow>
+          <img src={backArrow} /> Go back
+        </BackArrow>
+      </Link>
       <Username>{name}</Username>
     </Header>
   );

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
-  font-family: "Work Sans";
   font-weight: 400;
   font-size: 30px;
   overflow: hidden;
