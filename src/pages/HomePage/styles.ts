@@ -25,6 +25,14 @@ export const Button = styled.button`
   border-radius: 4px;
   color: #ffff;
   font-family: "Work Sans";
-
   padding: 8px 16px;
+  &:disabled {
+    background-color: #f7f7f7;
+    color: #52525b;
+  }
+`;
+
+export const BeesLogo = styled.img`
+  width: 278px;
+  height: 278px;
 `;

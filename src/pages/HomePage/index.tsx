@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import { Context } from "../../context/Context";
 import { Background, Input, Check, Button } from "./styles";
 
+import beesLogo from "../../assets/bees-log.svg";
+
 export const HomePage = () => {
   const navigate = useNavigate();
 
@@ -18,6 +20,8 @@ export const HomePage = () => {
     const regex = /[\d.,]/;
 
     if (regex.test(name)) {
+      setAlert(true);
+    } else if (name == "") {
       setAlert(true);
     } else {
       setGlobalState({ name });
@@ -48,6 +52,7 @@ export const HomePage = () => {
         </Button>
         {alert && <p>Only letters are accepted.</p>}
       </form>
+      <img src={beesLogo} />
     </Background>
   );
 };
