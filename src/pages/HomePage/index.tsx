@@ -9,6 +9,7 @@ export const HomePage = () => {
   const { setState: setGlobalState } = useContext(Context);
 
   const [name, setName] = useState<string>("");
+  const [isOver18, setIsOver18] = useState<boolean>(false);
   const [alert, setAlert] = useState<boolean>(false);
 
   const handleInput = (e: any) => {
@@ -24,6 +25,10 @@ export const HomePage = () => {
     }
   };
 
+  const handleAgeCheck = () => {
+    setIsOver18(!isOver18);
+  };
+
   return (
     <Background>
       <p>Please, enter your full name below</p>
@@ -35,10 +40,10 @@ export const HomePage = () => {
           placeholder="Full name"
         />
         <p>
-          <Check type="checkbox" />
+          <Check type="checkbox" onChange={handleAgeCheck} />
           Are you older than 18 years old?
         </p>
-        <Button disabled={name === ""} type="submit">
+        <Button disabled={!isOver18} type="submit">
           Enter
         </Button>
         {alert && <p>Only letters are accepted.</p>}

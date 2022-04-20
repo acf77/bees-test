@@ -44,6 +44,9 @@ export const ListScreen = () => {
               city={b.city}
               state={b.state}
               country={b.country}
+              brewery_type={b.brewery_type}
+              postal_code={b.postal_code}
+              phone={b.phone}
             />
           ))}
       </Container>
