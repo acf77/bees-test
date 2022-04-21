@@ -18,5 +18,25 @@ then, ### `npm start`: this will run the project. Open [http://localhost:3000](h
 | Card with Breweries info    | ✅     |
 | Delete card     | ✅     |
 | Go back button     | ✅     |
+| User name in the top right corner     | ✅     |
+
+## Bonus features
+
+| Feature | Done? |
+| --------          | -------- |
+| Typescript    | ✅        |
+| Global state             | ✅        |
+| Tests             | 👎🏽    |
+| Responsivity    | ✅     |
+| Add more feature    | ✅     |
+| Loading state and lazy loading | ✅     |
+| Showing your work through your Git commit history     | ✅     |
+
+## Extra feature
+
+| Feature | Done? |
+| --------          | -------- |
+| Show more/less list    | ✅        |
+
 
 
