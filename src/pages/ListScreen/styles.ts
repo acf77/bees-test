@@ -39,8 +39,10 @@ export const Loading = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 100%;
+  background-color: #fffef0;
 
-  animation: rotation 300ms infinite linear;
+  animation: rotation 500ms infinite linear;
 
   @keyframes rotation {
     from {

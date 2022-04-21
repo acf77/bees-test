@@ -17,12 +17,13 @@ export const ListScreen = () => {
   const { breweryList, name } = state;
 
   const url = "https://api.openbrewerydb.org/breweries";
+  const username = JSON.parse(localStorage.getItem("username") || "");
 
   useEffect(() => {
     const request = async () => {
       try {
         const req = await axios.get(url);
-        setState({ breweryList: req.data, name: name });
+        setState({ breweryList: req.data });
         setLoading(false);
       } catch (error: any) {
         console.error(error.message);
@@ -33,7 +34,8 @@ export const ListScreen = () => {
 
   return (
     <>
-      <HeaderComponent name={name} />
+      {/* @ts-ignore */}
+      <HeaderComponent name={username} />
       <Container>
         {loading ? (
           <Loading src={beesLogo} />

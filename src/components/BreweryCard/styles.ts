@@ -66,3 +66,26 @@ export const TrashButton = styled.button`
   background-color: #ffff;
   cursor: pointer;
 `;
+
+export const AddMoreButton = styled.button`
+  border: 0;
+  background-color: #ffff;
+  cursor: pointer;
+`;
+
+export const AddMoreInput = styled.input`
+  /* height: 32px; */
+  margin-top: 1px;
+  width: 100px;
+`;
+
+export const AddMoreOkButton = styled.button`
+  height: 25px;
+  width: 42px;
+  margin: 7px;
+  left: 45%;
+  background: #52525b;
+  border-radius: 4px;
+  color: #ffff;
+  cursor: pointer;
+`;

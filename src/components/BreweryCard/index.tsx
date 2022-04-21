@@ -6,8 +6,11 @@ import {
   YellowToastText,
   YellowToastContainer,
   TrashButton,
+  AddMoreInput,
+  AddMoreOkButton,
 } from "./styles";
-import { useContext } from "react";
+
+import { useContext, useRef, useState } from "react";
 import { Context } from "../../context/Context";
 
 import { HiOutlineLocationMarker, HiTrash } from "react-icons/hi";
@@ -44,6 +47,12 @@ export const BreweryCard = ({
   const { state, setState } = useContext(Context);
   const { breweryList, name } = state;
 
+  const [addMoreInput, setAddMoreInput] = useState<boolean>(false);
+  const [addMoreInputValue, setAddMoreInputValue] =
+    useState<string>("Add more");
+
+  const focusInput = useRef(null);
+
   const handleDeleteCard = () => {
     breweryList?.splice(
       breweryList?.findIndex((brewery: any) => brewery.id === id),
@@ -51,6 +60,21 @@ export const BreweryCard = ({
     );
 
     setState({ breweryList: breweryList, name: name });
+  };
+
+  const handleAddMore = () => {
+    //@ts-ignore
+    focusInput.current?.focus();
+    setAddMoreInput(true);
+  };
+
+  const handleKeyPress = (e: any) => {
+    if (e.key === "Enter") {
+      setAddMoreInputValue(e.target.value);
+      setAddMoreInput(false);
+    } else if (e.key === "Escape") {
+      setAddMoreInput(false);
+    }
   };
 
   return (
@@ -83,9 +107,21 @@ export const BreweryCard = ({
               <BsTelephone size={16} /> {phone ? phone : "Not availabe"}
             </YellowToastText>
           </YellowToast>
-          <YellowToast>
+          <YellowToast onClick={handleAddMore}>
             <YellowToastText>
-              <IoIosAddCircleOutline size={16} /> add more
+              {addMoreInput ? (
+                //@ts-ignore
+                <>
+                  <AddMoreInput
+                    maxLength={10}
+                    onKeyDown={(e) => handleKeyPress(e)}
+                  />
+                </>
+              ) : (
+                <>
+                  <IoIosAddCircleOutline size={16} /> {addMoreInputValue}
+                </>
+              )}
             </YellowToastText>
           </YellowToast>
         </YellowToastContainer>
