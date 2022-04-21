@@ -32,3 +32,22 @@ export const ShowMoreButton = styled.button`
     width: 150px;
   }
 `;
+
+export const Loading = styled.img`
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  animation: rotation 300ms infinite linear;
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+`;
