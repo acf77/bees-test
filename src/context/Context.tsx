@@ -1,7 +1,8 @@
 import React, { createContext, useState } from "react";
 
 export interface IUserName {
-  name: string;
+  name?: string | undefined;
+  breweryList?: [];
 }
 
 interface IContextProps {
@@ -12,6 +13,7 @@ interface IContextProps {
 export const DEFAULT_STATE: IContextProps = {
   state: {
     name: "",
+    breweryList: [],
   },
   setState: () => {},
 };

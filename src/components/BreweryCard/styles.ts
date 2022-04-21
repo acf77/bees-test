@@ -10,6 +10,12 @@ export const Card = styled.div`
   margin: 15px;
   float: left;
   padding: 23px;
+
+  @media (max-width: 800px) {
+    height: 250px;
+    width: 350px;
+    padding: 5px 15px;
+  }
 `;
 
 export const Title = styled.p`
@@ -19,6 +25,10 @@ export const Title = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  @media (max-width: 800px) {
+    width: 20ch;
+  }
 `;
 
 export const Address = styled.p`
@@ -48,4 +58,11 @@ export const YellowToastText = styled.p`
   text-align: center;
   font-size: 14px;
   margin: 5px;
+`;
+
+export const TrashButton = styled.button`
+  float: right;
+  border: 0;
+  background-color: #ffff;
+  cursor: pointer;
 `;

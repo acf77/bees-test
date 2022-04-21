@@ -3,73 +3,69 @@ import { Container, ShowMoreButton } from "./styles";
 import { HeaderComponent } from "../../components/Header";
 import { Context } from "../../context/Context";
 import { BreweryCard } from "../../components/BreweryCard";
-// import useGet from "../../hooks/useGet";
 import axios from "axios";
 
-interface ReqDataProps {
-  map: (b: any) => void;
-}
-
 export const ListScreen = () => {
-  //@ts-ignore
   const { state, setState } = useContext(Context);
-  const [reqData, setReqData] = useState<ReqDataProps>();
   const [showMore, setShowMore] = useState<boolean>(false);
 
-  const url = "https://api.openbrewerydb.org/breweries";
+  const { breweryList, name } = state;
 
-  // const list = useGet({ link: url });
+  const url = "https://api.openbrewerydb.org/breweries";
 
   useEffect(() => {
     const request = async () => {
       try {
         const req = await axios.get(url);
-        setReqData(req.data);
+        setState({ breweryList: req.data, name: name });
       } catch (error: any) {
         console.error(error.message);
       }
     };
     request();
-  }, [reqData]);
+  }, [name, setState]);
 
   return (
     <>
-      <HeaderComponent name={state.name} />
+      <HeaderComponent name={name} />
       <Container>
         {!showMore
-          ? reqData &&
-            reqData
-              // @ts-ignore
-              .slice(0, 6)
+          ? breweryList
+              ?.slice(0, 6)
               .map((b: any) => (
                 <BreweryCard
-                  name={b.name}
+                  key={b.id}
+                  id={b.id}
+                  brewery_name={b.name}
                   street={b.street}
                   city={b.city}
-                  state={b.state}
+                  brewery_state={b.state}
                   country={b.country}
                   brewery_type={b.brewery_type}
                   postal_code={b.postal_code}
                   phone={b.phone}
+                  b={b}
                 />
               ))
-          : reqData &&
-            reqData.map((b: any) => (
+          : breweryList?.map((b: any) => (
               <BreweryCard
-                name={b.name}
+                key={b.id}
+                id={b.id}
+                brewery_name={b.name}
                 street={b.street}
                 city={b.city}
-                state={b.state}
+                brewery_state={b.state}
                 country={b.country}
                 brewery_type={b.brewery_type}
                 postal_code={b.postal_code}
                 phone={b.phone}
+                b={b}
               />
             ))}
-        <ShowMoreButton onClick={(e) => setShowMore(!showMore)}>
-          {showMore ? "Show less" : "Show more"}
-        </ShowMoreButton>
       </Container>
+      <ShowMoreButton onClick={() => setShowMore(!showMore)}>
+        {showMore ? "Show less" : "Show more"}
+      </ShowMoreButton>
     </>
   );
 };

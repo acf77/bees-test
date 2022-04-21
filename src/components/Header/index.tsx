@@ -4,7 +4,7 @@ import backArrow from "../../assets/back-arrow-bees.svg";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
-  name: string;
+  name: string | undefined;
 }
 
 export const HeaderComponent = ({ name }: HeaderProps) => {
@@ -12,7 +12,7 @@ export const HeaderComponent = ({ name }: HeaderProps) => {
     <Header>
       <Link to="/">
         <BackArrow>
-          <img src={backArrow} /> Go back
+          <img alt="back home arrow" src={backArrow} /> Go back
         </BackArrow>
       </Link>
       <Username>{name}</Username>

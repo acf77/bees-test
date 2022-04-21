@@ -8,7 +8,7 @@ import beesLogo from "../../assets/bees-log.svg";
 export const HomePage = () => {
   const navigate = useNavigate();
 
-  const { setState: setGlobalState } = useContext(Context);
+  const { setState } = useContext(Context);
 
   const [name, setName] = useState<string>("");
   const [isOver18, setIsOver18] = useState<boolean>(false);
@@ -21,10 +21,11 @@ export const HomePage = () => {
 
     if (regex.test(name)) {
       setAlert(true);
-    } else if (name == "") {
+    } else if (name === "") {
       setAlert(true);
     } else {
-      setGlobalState({ name });
+      setState({ name });
+      localStorage.setItem("username", JSON.stringify(name));
       navigate("/list");
     }
   };
@@ -52,7 +53,7 @@ export const HomePage = () => {
         </Button>
         {alert && <p>Only letters are accepted.</p>}
       </form>
-      <img src={beesLogo} />
+      <img alt="bees logo" src={beesLogo} />
     </Background>
   );
 };

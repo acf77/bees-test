@@ -24,7 +24,6 @@ export const Button = styled.button`
   background: #52525b;
   border-radius: 4px;
   color: #ffff;
-  font-family: "Work Sans";
   padding: 8px 16px;
   &:disabled {
     background-color: #f7f7f7;
