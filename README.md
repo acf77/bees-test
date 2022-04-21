@@ -12,12 +12,11 @@ then, ### `npm start`: this will run the project. Open [http://localhost:3000](h
 
 | Feature | Done? |
 | --------          | -------- |
-| The UI of the first screen contains: an input text, a checkbox, some labels, a button, background and an image.
-The input text component, where the user should enter his/her full name and a checkbox asking if he/she is older than 18 (since we'll display brewery information). Note that the button should be enabled ONLY if the user enters the full name and checks the checkbox, if one of these conditions are not filled the button should remain disabled     | ✅        |
-| Style             | 15        |
-| React             | 30    |
-| Javascript best practices    | 30     |
-| Folder structure      | 5     |
-| Total points     | 100     |
+| Main UI    | ✅        |
+| Main UI Validation             | ✅        |
+| Fetch data from OpenBrewery API             | ✅    |
+| Card with Breweries info    | ✅     |
+| Delete card     | ✅     |
+| Go back button     | ✅     |
 
 
