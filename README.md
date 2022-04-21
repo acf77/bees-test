@@ -38,5 +38,9 @@ then, ### `npm start`: this will run the project. Open [http://localhost:3000](h
 | --------          | -------- |
 | Show more/less list    | ✅        |
 
+## Demonstration on a iPhone XR
+
+![bees-test-gif](https://user-images.githubusercontent.com/61336548/164514987-77c2f5eb-20b3-42cc-a674-9f3c1d6a8a77.gif)
+
 
 
