@@ -78,14 +78,3 @@ export const AddMoreInput = styled.input`
   margin-top: 1px;
   width: 100px;
 `;
-
-export const AddMoreOkButton = styled.button`
-  height: 25px;
-  width: 42px;
-  margin: 7px;
-  left: 45%;
-  background: #52525b;
-  border-radius: 4px;
-  color: #ffff;
-  cursor: pointer;
-`;

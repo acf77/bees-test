@@ -34,7 +34,6 @@ export const ListScreen = () => {
 
   return (
     <>
-      {/* @ts-ignore */}
       <HeaderComponent name={username} />
       <Container>
         {loading ? (

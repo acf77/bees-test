@@ -7,10 +7,9 @@ import {
   YellowToastContainer,
   TrashButton,
   AddMoreInput,
-  AddMoreOkButton,
 } from "./styles";
 
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 
 import { HiOutlineLocationMarker, HiTrash } from "react-icons/hi";
@@ -51,11 +50,9 @@ export const BreweryCard = ({
   const [addMoreInputValue, setAddMoreInputValue] =
     useState<string>("Add more");
 
-  const focusInput = useRef(null);
-
   const handleDeleteCard = () => {
     breweryList?.splice(
-      breweryList?.findIndex((brewery: any) => brewery.id === id),
+      breweryList?.findIndex((brewery: { id: string }) => brewery.id === id),
       1
     );
 
@@ -63,12 +60,10 @@ export const BreweryCard = ({
   };
 
   const handleAddMore = () => {
-    //@ts-ignore
-    focusInput.current?.focus();
     setAddMoreInput(true);
   };
 
-  const handleKeyPress = (e: any) => {
+  const handleKeyPress = (e: { key: string; target: any }) => {
     if (e.key === "Enter") {
       setAddMoreInputValue(e.target.value);
       setAddMoreInput(false);
@@ -110,7 +105,6 @@ export const BreweryCard = ({
           <YellowToast onClick={handleAddMore}>
             <YellowToastText>
               {addMoreInput ? (
-                //@ts-ignore
                 <>
                   <AddMoreInput
                     maxLength={10}

@@ -40,10 +40,12 @@ export const HomePage = () => {
       <p>Only alphabetical characters are accepted</p>
       <form onSubmit={handleInput}>
         <Input
+          maxLength={20}
           onChange={(e) => setName(e.target.value)}
           type="text"
           placeholder="Full name"
         />
+        <p>You have {20 - name.length} characters left</p>
         <p>
           <Check type="checkbox" onChange={handleAgeCheck} />
           Are you older than 18 years old?
